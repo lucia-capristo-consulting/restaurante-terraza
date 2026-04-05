@@ -1,0 +1,99 @@
+import HeroSection from "../components/HeroSection";
+import CTAButton from "../components/CTAButton";
+import { useScrollReveal } from "../hooks/useScrollReveal";
+import { heroHome, paellaMariscos, lubinaSal, cremaCatalana } from "../assets/images";
+
+const featuredDishes = [
+  {
+    name: "Paella de Mariscos",
+    price: "18 €/pers.",
+    image: paellaMariscos,
+  },
+  {
+    name: "Lubina Salvaje a la Sal",
+    price: "22 €",
+    image: lubinaSal,
+  },
+  {
+    name: "Crema Catalana",
+    price: "7 €",
+    image: cremaCatalana,
+  },
+];
+
+export default function Home() {
+  useScrollReveal();
+
+  return (
+    <>
+      <HeroSection
+        image={heroHome}
+        title="La Terraza"
+        subtitle="Sabores del Mediterráneo en el corazón de Gràcia"
+        ctaLabel="Reservar Mesa"
+        ctaTo="/reservas"
+      />
+
+      {/* Welcome */}
+      <section className="py-16 md:py-24 px-4 max-w-4xl mx-auto text-center fade-in">
+        <h2 className="font-serif text-3xl md:text-4xl font-bold text-charcoal">
+          Bienvenidos a nuestra mesa
+        </h2>
+        <p className="mt-6 text-charcoal/70 leading-relaxed text-lg max-w-2xl mx-auto">
+          En La Terraza creemos que la buena cocina nace del respeto por el producto. Cada mañana
+          seleccionamos personalmente los mejores ingredientes del Mercat de l'Abaceria para
+          ofrecerte una experiencia gastronómica auténtica, donde las recetas de la abuela se
+          encuentran con la creatividad contemporánea.
+        </p>
+      </section>
+
+      {/* Featured dishes */}
+      <section className="py-16 md:py-24 bg-cream-dark">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="font-serif text-3xl md:text-4xl font-bold text-charcoal text-center fade-in">
+            Platos Destacados
+          </h2>
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {featuredDishes.map((dish) => (
+              <div
+                key={dish.name}
+                className="fade-in bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group"
+              >
+                <div className="overflow-hidden">
+                  <img
+                    src={dish.image}
+                    alt={dish.name}
+                    className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-6 text-center">
+                  <h3 className="font-serif text-xl font-semibold text-charcoal">{dish.name}</h3>
+                  <p className="mt-2 text-terra font-bold text-lg">{dish.price}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="mt-12 text-center fade-in">
+            <CTAButton to="/carta">Ver Carta Completa</CTAButton>
+          </div>
+        </div>
+      </section>
+
+      {/* Hours */}
+      <section className="py-16 md:py-24 px-4 max-w-4xl mx-auto text-center fade-in">
+        <h2 className="font-serif text-3xl md:text-4xl font-bold text-charcoal">
+          Horarios
+        </h2>
+        <div className="mt-8 space-y-3 text-charcoal/70 text-lg">
+          <p><span className="font-semibold text-charcoal">Martes - Viernes:</span> 13:00 – 16:00 / 20:00 – 23:30</p>
+          <p><span className="font-semibold text-charcoal">Sábados:</span> 13:00 – 16:30 / 20:00 – 00:00</p>
+          <p><span className="font-semibold text-charcoal">Domingos:</span> 13:00 – 16:30</p>
+          <p><span className="font-semibold text-charcoal">Lunes:</span> Cerrado</p>
+        </div>
+        <div className="mt-10">
+          <CTAButton to="/reservas">Reservar Mesa</CTAButton>
+        </div>
+      </section>
+    </>
+  );
+}

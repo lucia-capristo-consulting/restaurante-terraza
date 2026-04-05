@@ -1,0 +1,37 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx vite:*)",
+      "Bash(curl -sL -o public/images/hero/home.jpg \"https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1600&h=900&fit=crop\")",
+      "Bash(curl -sL -o public/images/hero/menu.jpg \"https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1600&h=600&fit=crop\")",
+      "Bash(curl -sL -o public/images/hero/about.jpg \"https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=1600&h=600&fit=crop\")",
+      "Bash(curl -sL -o public/images/hero/reservations.jpg \"https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=1600&h=600&fit=crop\")",
+      "Bash(curl -sL -o public/images/hero/contact.jpg \"https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1600&h=600&fit=crop\")",
+      "Bash(curl -sL -o public/images/dishes/paella-mariscos.jpg \"https://images.unsplash.com/photo-1534080564583-6be75777b70a?w=600&h=400&fit=crop\")",
+      "Bash(curl -sL -o public/images/dishes/lubina-sal.jpg \"https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a0?w=600&h=400&fit=crop\")",
+      "Bash(curl -sL -o public/images/dishes/crema-catalana.jpg \"https://images.unsplash.com/photo-1470124182917-cc6e71b22ecc?w=600&h=400&fit=crop\")",
+      "Bash(curl -sL -o public/images/dishes/carpaccio-pulpo.jpg \"https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=600&h=400&fit=crop\")",
+      "Bash(curl -sL -o public/images/dishes/escalivada.jpg \"https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&h=400&fit=crop\")",
+      "Bash(curl -sL -o public/images/dishes/lubina-menu.jpg \"https://images.unsplash.com/photo-1535140728325-a4d3707eee61?w=600&h=400&fit=crop\")",
+      "Bash(curl -sL -o public/images/dishes/dorada-plancha.jpg \"https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a0?w=600&h=400&fit=crop\")",
+      "Bash(curl -sL -o public/images/dishes/bacalao.jpg \"https://images.unsplash.com/photo-1485921325833-c519f76c4927?w=600&h=400&fit=crop\")",
+      "Bash(curl -sL -o public/images/dishes/solomillo.jpg \"https://images.unsplash.com/photo-1558030006-450675393462?w=600&h=400&fit=crop\")",
+      "Bash(curl -sL -o public/images/dishes/secreto-iberico.jpg \"https://images.unsplash.com/photo-1544025162-d76694265947?w=600&h=400&fit=crop\")",
+      "Bash(curl -sL -o public/images/gallery/interior.jpg \"https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&h=400&fit=crop\")",
+      "Bash(curl -sL -o public/images/gallery/terraza.jpg \"https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=600&h=400&fit=crop\")",
+      "Bash(curl -sL -o public/images/gallery/barra.jpg \"https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=600&h=400&fit=crop\")",
+      "Bash(curl -sL -o public/images/gallery/detalle.jpg \"https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop\")",
+      "Bash(curl -sL -o public/images/team/chef.jpg \"https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=400&h=400&fit=crop\")",
+      "Bash(find public/images -name '*.jpg' -exec sh -c 'size=$\\(wc -c < \"$1\"\\); name=$\\(basename \"$1\"\\); printf \"%-25s %s KB\\\\n\" \"$name\" \"$\\(\\(size/1024\\)\\)\"' _ '{}' ';')",
+      "Bash(curl -sL -o public/images/dishes/lubina-sal.jpg \"https://images.unsplash.com/photo-1599084993091-1cb5c0721cc6?w=600&h=400&fit=crop\")",
+      "Bash(curl -sL -o public/images/dishes/dorada-plancha.jpg \"https://images.unsplash.com/photo-1580476262798-bddd9f4b7369?w=600&h=400&fit=crop\")",
+      "Bash(wait)",
+      "Bash(xxd public/images/gallery/barra.jpg)",
+      "Bash(cp public/images/hero/* src/assets/images/hero/)",
+      "Bash(cp public/images/dishes/* src/assets/images/dishes/)",
+      "Bash(cp public/images/gallery/* src/assets/images/gallery/)",
+      "Bash(cp public/images/team/* src/assets/images/team/)",
+      "Bash(npx tsc:*)"
+    ]
+  }
+}

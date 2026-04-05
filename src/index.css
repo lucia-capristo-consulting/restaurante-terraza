@@ -1,1 +1,36 @@
 @import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Lato", sans-serif;
+  --color-terra: #c2703e;
+  --color-terra-dark: #9a5a32;
+  --color-cream: #fdf6ee;
+  --color-cream-dark: #f5e6d3;
+  --color-olive: #6b7c3e;
+  --color-olive-dark: #4a5a2b;
+  --color-amber-warm: #d4a574;
+  --color-charcoal: #3d3428;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  color: #3d3428;
+  background-color: #fdf6ee;
+}
+
+/* Fade-in animation for scroll reveal */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
