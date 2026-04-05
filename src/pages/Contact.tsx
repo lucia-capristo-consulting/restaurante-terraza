@@ -19,6 +19,7 @@ export default function Contact() {
         image={heroContact}
         title="Contacto"
         subtitle="Estamos encantados de atenderte"
+        variant="banner"
       />
 
       <section className="py-16 md:py-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">

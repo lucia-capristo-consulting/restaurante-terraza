@@ -17,7 +17,7 @@ export default function Navbar() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-cream/95 backdrop-blur-sm shadow-sm">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 md:h-20">
         <Link to="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
-          <span className="text-2xl md:text-3xl font-serif font-bold text-terra-dark tracking-tight">
+          <span className="text-4xl md:text-5xl font-logo font-medium text-terra-dark tracking-wide">
             La Terraza
           </span>
         </Link>
@@ -28,7 +28,7 @@ export default function Navbar() {
             <li key={l.to}>
               <Link
                 to={l.to}
-                className={`text-sm font-semibold uppercase tracking-wider transition-colors hover:text-terra ${
+                className={`font-nav text-sm font-bold uppercase tracking-wider transition-colors hover:text-terra ${
                   pathname === l.to ? "text-terra border-b-2 border-terra pb-1" : "text-charcoal"
                 }`}
               >
@@ -39,7 +39,7 @@ export default function Navbar() {
           <li>
             <Link
               to="/reservas"
-              className="bg-terra text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-terra-dark transition-colors"
+              className="font-nav bg-terra text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-terra-dark transition-colors"
             >
               Reservar Mesa
             </Link>
@@ -67,7 +67,7 @@ export default function Navbar() {
                 <Link
                   to={l.to}
                   onClick={() => setOpen(false)}
-                  className={`block text-lg font-semibold transition-colors ${
+                  className={`block font-nav text-lg font-bold transition-colors ${
                     pathname === l.to ? "text-terra" : "text-charcoal"
                   }`}
                 >
@@ -79,7 +79,7 @@ export default function Navbar() {
               <Link
                 to="/reservas"
                 onClick={() => setOpen(false)}
-                className="inline-block bg-terra text-white px-6 py-3 rounded-full font-semibold hover:bg-terra-dark transition-colors"
+                className="inline-block font-nav bg-terra text-white px-6 py-3 rounded-full font-bold hover:bg-terra-dark transition-colors"
               >
                 Reservar Mesa
               </Link>

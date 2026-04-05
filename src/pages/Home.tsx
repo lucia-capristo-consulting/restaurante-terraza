@@ -29,6 +29,7 @@ export default function Home() {
       <HeroSection
         image={heroHome}
         title="La Terraza"
+        titleClassName="font-logo font-normal text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-white leading-tight drop-shadow-lg"
         subtitle="Sabores del Mediterráneo en el corazón de Gràcia"
         ctaLabel="Reservar Mesa"
         ctaTo="/reservas"
@@ -68,7 +69,6 @@ export default function Home() {
                 </div>
                 <div className="p-6 text-center">
                   <h3 className="font-serif text-xl font-semibold text-charcoal">{dish.name}</h3>
-                  <p className="mt-2 text-terra font-bold text-lg">{dish.price}</p>
                 </div>
               </div>
             ))}

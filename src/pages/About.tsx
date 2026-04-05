@@ -21,6 +21,7 @@ export default function About() {
         image={heroAbout}
         title="Nuestra Historia"
         subtitle="Tradición mediterránea desde 2008"
+        variant="banner"
       />
 
       {/* Story */}

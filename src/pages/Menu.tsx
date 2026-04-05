@@ -209,6 +209,7 @@ export default function Menu() {
         image={heroMenu}
         title="Nuestra Carta"
         subtitle="Producto fresco de mercado, cada día"
+        variant="banner"
       />
 
       <section className="py-12 md:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

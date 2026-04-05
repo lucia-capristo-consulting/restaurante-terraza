@@ -6,6 +6,8 @@ interface HeroSectionProps {
   subtitle?: string;
   ctaLabel?: string;
   ctaTo?: string;
+  titleClassName?: string;
+  variant?: "cover" | "banner";
   overlay?: boolean;
 }
 
@@ -15,24 +17,53 @@ export default function HeroSection({
   subtitle,
   ctaLabel,
   ctaTo,
+  titleClassName,
+  variant = "cover",
   overlay = true,
 }: HeroSectionProps) {
+  const isBanner = variant === "banner";
+
   return (
-    <section className="relative h-[70vh] md:h-[85vh] flex items-center justify-center overflow-hidden">
+    <section
+      className={`relative overflow-hidden ${
+        isBanner
+          ? "h-[40vh] md:h-[50vh] flex items-end"
+          : "h-[70vh] md:h-[85vh] flex items-center justify-center"
+      }`}
+    >
       <img
         src={image}
         alt=""
         className="absolute inset-0 w-full h-full object-cover"
       />
       {overlay && (
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/10" />
+        <div className={`absolute inset-0 ${
+          isBanner
+            ? "bg-gradient-to-t from-black/80 via-black/40 to-transparent"
+            : "bg-gradient-to-t from-black/70 via-black/30 to-black/10"
+        }`} />
       )}
-      <div className="relative z-10 text-center px-4 max-w-3xl">
-        <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight drop-shadow-lg">
+      <div
+        className={`relative z-10 px-4 ${
+          isBanner
+            ? "max-w-7xl mx-auto w-full pb-8 md:pb-12 sm:px-6 lg:px-8"
+            : "text-center max-w-3xl"
+        }`}
+      >
+        <h1
+          className={
+            titleClassName ??
+            `font-serif font-bold text-white leading-tight drop-shadow-lg ${
+              isBanner
+                ? "text-3xl sm:text-4xl md:text-5xl"
+                : "text-4xl sm:text-5xl md:text-6xl lg:text-7xl"
+            }`
+          }
+        >
           {title}
         </h1>
         {subtitle && (
-          <p className="mt-4 md:mt-6 text-lg md:text-xl text-white/90 font-light drop-shadow">
+          <p className="mt-2 md:mt-4 text-lg md:text-xl text-white/90 font-light drop-shadow">
             {subtitle}
           </p>
         )}

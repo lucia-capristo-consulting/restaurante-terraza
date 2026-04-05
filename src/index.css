@@ -2,6 +2,8 @@
 
 @theme {
   --font-serif: "Playfair Display", serif;
+  --font-logo: "Great Vibes", cursive;
+  --font-nav: "Martel Sans", sans-serif;
   --font-sans: "Lato", sans-serif;
   --color-terra: #c2703e;
   --color-terra-dark: #9a5a32;

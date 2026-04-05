@@ -19,6 +19,7 @@ export default function Reservations() {
         image={heroReservations}
         title="Reserva tu Mesa"
         subtitle="Te esperamos para una experiencia inolvidable"
+        variant="banner"
       />
 
       <section className="py-16 md:py-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
