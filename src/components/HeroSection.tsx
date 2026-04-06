@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import SafeImage from "./SafeImage";
 
 interface HeroSectionProps {
   image: string;
@@ -33,7 +34,7 @@ export default function HeroSection({
           : "h-[70vh] md:h-[85vh] flex items-center justify-center"
       }`}
     >
-      <img
+      <SafeImage
         src={image}
         alt={alt}
         className="absolute inset-0 w-full h-full object-cover"

@@ -1,4 +1,5 @@
 import HeroSection from "../components/HeroSection";
+import SafeImage from "../components/SafeImage";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import { heroAbout, teamChef, teamSommelier } from "../assets/images";
 import { gallery, team } from "../data/gallery";
@@ -74,7 +75,7 @@ export default function About() {
         <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
           {gallery.map((img) => (
             <div key={img.alt} className="fade-in overflow-hidden rounded-xl">
-              <img
+              <SafeImage
                 src={img.src}
                 alt={img.alt}
                 className="w-full h-48 md:h-56 object-cover hover:scale-105 transition-transform duration-500"
@@ -93,7 +94,7 @@ export default function About() {
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-8">
             {team.map((member, i) => (
               <div key={member.name} className="fade-in">
-                <img
+                <SafeImage
                   src={i === 0 ? teamChef : teamSommelier}
                   alt={member.alt}
                   className="w-40 h-40 rounded-full mx-auto object-cover shadow-md"

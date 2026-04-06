@@ -1,3 +1,5 @@
+import SafeImage from "./SafeImage";
+
 interface DishCardProps {
   name: string;
   description: string;
@@ -10,7 +12,7 @@ export default function DishCard({ name, description, price, image, allergens }:
   return (
     <div className="h-full flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
       {image && (
-        <img src={image} alt={name} className="w-full h-48 object-cover" />
+        <SafeImage src={image} alt={name} className="w-full h-48 object-cover" />
       )}
       <div className="p-5 flex flex-col flex-1">
         <div className="flex items-start justify-between gap-3">

@@ -1,4 +1,5 @@
 import HeroSection from "../components/HeroSection";
+import SafeImage from "../components/SafeImage";
 import CTAButton from "../components/CTAButton";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import { heroHome } from "../assets/images";
@@ -46,7 +47,7 @@ export default function Home() {
                 className="fade-in bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group"
               >
                 <div className="overflow-hidden">
-                  <img
+                  <SafeImage
                     src={dish.image}
                     alt={dish.alt}
                     className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500"

@@ -24,6 +24,7 @@ export const navigation = [
   { to: "/carta", label: "Carta" },
   { to: "/nosotros", label: "Sobre Nosotros" },
   { to: "/reservas", label: "Reservas" },
+  { to: "/eventos", label: "Eventos" },
   { to: "/contacto", label: "Contacto" },
 ];
 

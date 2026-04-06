@@ -1,15 +1,15 @@
 import {
-  galleryInterior,
-  galleryTerraza,
-  galleryBarra,
-  galleryDetalle,
+  gallery1Terraza,
+  gallery2Terraza,
+  gallery3Barra,
+  gallery4Salon,
 } from "../assets/images";
 
 export const gallery = [
-  { src: galleryInterior, alt: "Sala interior del restaurante con iluminación cálida y mesas de madera" },
-  { src: galleryTerraza, alt: "Terraza al aire libre con plantas y vistas al barrio de Gràcia" },
-  { src: galleryBarra, alt: "Barra del restaurante con botellas de vino y copas" },
-  { src: galleryDetalle, alt: "Detalle de la decoración mediterránea del restaurante" },
+  { src: gallery1Terraza, alt: "Camarera preparando copas de vino en la terraza de La Terraza al atardecer con vistas panorámicas de Barcelona" },
+  { src: gallery2Terraza, alt: "Mesas con manteles blancos y velas encendidas en la terraza al anochecer con tejados y puesta de sol de fondo" },
+  { src: gallery3Barra, alt: "Bartender trabajando en la barra iluminada del restaurante La Terraza con estantería de licores y copas colgantes" },
+  { src: gallery4Salon, alt: "Salón interior de La Terraza con mesas de madera, velas, lámparas de mimbre y plantas colgantes en ambiente acogedor" },
 ];
 
 export const team = [

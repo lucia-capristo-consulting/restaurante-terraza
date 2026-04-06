@@ -6,6 +6,7 @@ const links = [
   { to: "/carta", label: "Carta" },
   { to: "/nosotros", label: "Nosotros" },
   { to: "/reservas", label: "Reservas" },
+  { to: "/eventos", label: "Eventos" },
   { to: "/contacto", label: "Contacto" },
 ];
 

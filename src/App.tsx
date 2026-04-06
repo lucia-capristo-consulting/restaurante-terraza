@@ -9,6 +9,7 @@ import Menu from "./pages/Menu";
 import About from "./pages/About";
 import Reservations from "./pages/Reservations";
 import Contact from "./pages/Contact";
+import Events from "./pages/Events";
 import ScrollToTop from "./components/ScrollToTop";
 
 const BANNER_STORAGE_KEY = "announcement-banner-dismissed";
@@ -33,6 +34,7 @@ function App() {
           <Route path="/carta" element={<Menu />} />
           <Route path="/nosotros" element={<About />} />
           <Route path="/reservas" element={<Reservations />} />
+          <Route path="/eventos" element={<Events />} />
           <Route path="/contacto" element={<Contact />} />
         </Routes>
       </main>
