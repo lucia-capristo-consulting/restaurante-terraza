@@ -143,6 +143,23 @@ export default function Reservations() {
                 </div>
 
                 <div>
+                  <label htmlFor="zone" className="block text-sm font-semibold text-charcoal mb-1">
+                    Zona preferida *
+                  </label>
+                  <select
+                    id="zone"
+                    required
+                    disabled={status === "sending"}
+                    className="w-full border border-cream-dark rounded-lg px-4 py-3 bg-white focus:outline-none focus:ring-2 focus:ring-terra/50 disabled:opacity-50"
+                  >
+                    <option value="">Seleccionar</option>
+                    <option value="terraza">Terraza</option>
+                    <option value="salon">Salón</option>
+                    <option value="indistinto">Indistinto</option>
+                  </select>
+                </div>
+
+                <div>
                   <label htmlFor="occasion" className="block text-sm font-semibold text-charcoal mb-1">
                     Ocasión especial
                   </label>
