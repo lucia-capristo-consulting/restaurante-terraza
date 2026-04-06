@@ -1,16 +1,7 @@
 import HeroSection from "../components/HeroSection";
 import { useScrollReveal } from "../hooks/useScrollReveal";
-import {
-  heroAbout,
-  galleryInterior,
-  galleryTerraza,
-  galleryBarra,
-  galleryDetalle,
-  teamChef,
-  teamSommelier,
-} from "../assets/images";
-
-const gallery = [galleryInterior, galleryTerraza, galleryBarra, galleryDetalle];
+import { heroAbout, teamChef, teamSommelier } from "../assets/images";
+import { gallery, team } from "../data/gallery";
 
 export default function About() {
   useScrollReveal();
@@ -22,6 +13,7 @@ export default function About() {
         title="Nuestra Historia"
         subtitle="Tradición mediterránea desde 2008"
         variant="banner"
+        alt="Interior del restaurante La Terraza con decoración mediterránea"
       />
 
       {/* Story */}
@@ -80,11 +72,11 @@ export default function About() {
           Nuestro Espacio
         </h2>
         <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
-          {gallery.map((src, i) => (
-            <div key={i} className="fade-in overflow-hidden rounded-xl">
+          {gallery.map((img) => (
+            <div key={img.alt} className="fade-in overflow-hidden rounded-xl">
               <img
-                src={src}
-                alt={`Interior del restaurante ${i + 1}`}
+                src={img.src}
+                alt={img.alt}
                 className="w-full h-48 md:h-56 object-cover hover:scale-105 transition-transform duration-500"
               />
             </div>
@@ -99,24 +91,11 @@ export default function About() {
             Nuestro Equipo
           </h2>
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-8">
-            {[
-              {
-                name: "Carlos Martínez",
-                role: "Chef Ejecutivo",
-                image: teamChef,
-                bio: "Formado en el Celler de Can Roca y con experiencia en cocinas de Barcelona y Lyon, Carlos dirige nuestra cocina con pasión y rigor desde la apertura.",
-              },
-              {
-                name: "Lucía Vega",
-                role: "Sommelier",
-                image: teamSommelier,
-                bio: "Con certificación WSET Level 3 y un profundo conocimiento de los vinos del Mediterráneo, Lucía cuida cada maridaje para elevar tu experiencia.",
-              },
-            ].map((member) => (
+            {team.map((member, i) => (
               <div key={member.name} className="fade-in">
                 <img
-                  src={member.image}
-                  alt={member.name}
+                  src={i === 0 ? teamChef : teamSommelier}
+                  alt={member.alt}
                   className="w-40 h-40 rounded-full mx-auto object-cover shadow-md"
                 />
                 <h3 className="mt-4 font-serif text-xl font-semibold text-charcoal">

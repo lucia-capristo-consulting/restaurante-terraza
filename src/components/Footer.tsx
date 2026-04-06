@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { hours, contact, navigation } from "../data/restaurant";
 
 export default function Footer() {
   return (
@@ -35,6 +36,17 @@ export default function Footer() {
                   <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.018 1.792-4.684 4.533-4.684 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.93-1.956 1.886v2.273h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
                 </svg>
               </a>
+              <a
+                href="https://www.tripadvisor.com/laterrazabcn"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-terra transition-colors"
+                aria-label="TripAdvisor"
+              >
+                <svg className="w-5 h-5 fill-current text-cream-dark" viewBox="0 0 24 24">
+                  <path d="M12 2C6.5 2 2 4.5 2 4.5S4.1 2.8 7.4 2.2c-.1 0-.1 0-.2.1C4.1 3.5 2 6.4 2 9.8c0 4.4 3.6 8 8 8 1.3 0 2.5-.3 3.6-.9L12 19l-1.6-2.1c1.1.6 2.3.9 3.6.9 4.4 0 8-3.6 8-8 0-3.4-2.1-6.3-5.2-7.5-.1 0-.1-.1-.2-.1C19.9 2.8 22 4.5 22 4.5S17.5 2 12 2zM7 6.8c1.7 0 3 1.3 3 3s-1.3 3-3 3-3-1.3-3-3 1.3-3 3-3zm10 0c1.7 0 3 1.3 3 3s-1.3 3-3 3-3-1.3-3-3 1.3-3 3-3zM7 8.3c-.8 0-1.5.7-1.5 1.5S6.2 11.3 7 11.3s1.5-.7 1.5-1.5S7.8 8.3 7 8.3zm10 0c-.8 0-1.5.7-1.5 1.5s.7 1.5 1.5 1.5 1.5-.7 1.5-1.5-.7-1.5-1.5-1.5z"/>
+                </svg>
+              </a>
             </div>
           </div>
 
@@ -44,13 +56,7 @@ export default function Footer() {
               Navegación
             </h4>
             <ul className="space-y-2 text-sm opacity-80">
-              {[
-                { to: "/", label: "Inicio" },
-                { to: "/carta", label: "Carta" },
-                { to: "/nosotros", label: "Sobre Nosotros" },
-                { to: "/reservas", label: "Reservas" },
-                { to: "/contacto", label: "Contacto" },
-              ].map((l) => (
+              {navigation.map((l) => (
                 <li key={l.to}>
                   <Link to={l.to} className="hover:text-white transition-colors">
                     {l.label}
@@ -66,14 +72,13 @@ export default function Footer() {
               Horarios
             </h4>
             <ul className="space-y-2 text-sm opacity-80">
-              <li>Martes - Viernes: 13:00 – 16:00 / 20:00 – 23:30</li>
-              <li>Sábados: 13:00 – 16:30 / 20:00 – 00:00</li>
-              <li>Domingos: 13:00 – 16:30</li>
-              <li>Lunes: Cerrado</li>
+              {hours.map((h) => (
+                <li key={h.days}>{h.days}: {h.time}</li>
+              ))}
             </ul>
             <div className="mt-4 text-sm opacity-80">
-              <p>Carrer de Verdi, 42, 08012 Barcelona</p>
-              <p>+34 933 XXX XXX</p>
+              <p>{contact.address}</p>
+              <p>{contact.phone}</p>
             </div>
           </div>
         </div>

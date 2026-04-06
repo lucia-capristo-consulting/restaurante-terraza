@@ -9,6 +9,7 @@ interface HeroSectionProps {
   titleClassName?: string;
   variant?: "cover" | "banner";
   overlay?: boolean;
+  alt?: string;
 }
 
 export default function HeroSection({
@@ -20,6 +21,7 @@ export default function HeroSection({
   titleClassName,
   variant = "cover",
   overlay = true,
+  alt = "",
 }: HeroSectionProps) {
   const isBanner = variant === "banner";
 
@@ -33,7 +35,7 @@ export default function HeroSection({
     >
       <img
         src={image}
-        alt=""
+        alt={alt}
         className="absolute inset-0 w-full h-full object-cover"
       />
       {overlay && (

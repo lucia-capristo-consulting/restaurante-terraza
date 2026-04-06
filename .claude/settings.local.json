@@ -31,7 +31,8 @@
       "Bash(cp public/images/dishes/* src/assets/images/dishes/)",
       "Bash(cp public/images/gallery/* src/assets/images/gallery/)",
       "Bash(cp public/images/team/* src/assets/images/team/)",
-      "Bash(npx tsc:*)"
+      "Bash(npx tsc:*)",
+      "Bash(npm run:*)"
     ]
   }
 }

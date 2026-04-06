@@ -3,14 +3,16 @@ import type { FormEvent } from "react";
 import HeroSection from "../components/HeroSection";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import { heroReservations } from "../assets/images";
+import { contact, reservationHours } from "../data/restaurant";
 
 export default function Reservations() {
   useScrollReveal();
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitted(true);
+    setStatus("sending");
+    setTimeout(() => setStatus("sent"), 1500);
   }
 
   return (
@@ -20,13 +22,14 @@ export default function Reservations() {
         title="Reserva tu Mesa"
         subtitle="Te esperamos para una experiencia inolvidable"
         variant="banner"
+        alt="Mesa elegante preparada para una cena en la terraza del restaurante"
       />
 
       <section className="py-16 md:py-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
           {/* Form */}
           <div className="lg:col-span-3 fade-in">
-            {submitted ? (
+            {status === "sent" ? (
               <div className="bg-olive/10 border border-olive rounded-2xl p-8 text-center">
                 <h3 className="font-serif text-2xl font-bold text-olive-dark">
                   Reserva recibida
@@ -36,7 +39,7 @@ export default function Reservations() {
                   las próximas horas. Gracias por elegir La Terraza.
                 </p>
                 <button
-                  onClick={() => setSubmitted(false)}
+                  onClick={() => setStatus("idle")}
                   className="mt-6 text-terra font-semibold hover:underline"
                 >
                   Hacer otra reserva
@@ -57,7 +60,8 @@ export default function Reservations() {
                       id="name"
                       type="text"
                       required
-                      className="w-full border border-cream-dark rounded-lg px-4 py-3 bg-white focus:outline-none focus:ring-2 focus:ring-terra/50"
+                      disabled={status === "sending"}
+                      className="w-full border border-cream-dark rounded-lg px-4 py-3 bg-white focus:outline-none focus:ring-2 focus:ring-terra/50 disabled:opacity-50"
                     />
                   </div>
                   <div>
@@ -68,7 +72,8 @@ export default function Reservations() {
                       id="phone"
                       type="tel"
                       required
-                      className="w-full border border-cream-dark rounded-lg px-4 py-3 bg-white focus:outline-none focus:ring-2 focus:ring-terra/50"
+                      disabled={status === "sending"}
+                      className="w-full border border-cream-dark rounded-lg px-4 py-3 bg-white focus:outline-none focus:ring-2 focus:ring-terra/50 disabled:opacity-50"
                     />
                   </div>
                 </div>
@@ -81,7 +86,8 @@ export default function Reservations() {
                     id="email"
                     type="email"
                     required
-                    className="w-full border border-cream-dark rounded-lg px-4 py-3 bg-white focus:outline-none focus:ring-2 focus:ring-terra/50"
+                    disabled={status === "sending"}
+                    className="w-full border border-cream-dark rounded-lg px-4 py-3 bg-white focus:outline-none focus:ring-2 focus:ring-terra/50 disabled:opacity-50"
                   />
                 </div>
 
@@ -94,7 +100,8 @@ export default function Reservations() {
                       id="date"
                       type="date"
                       required
-                      className="w-full border border-cream-dark rounded-lg px-4 py-3 bg-white focus:outline-none focus:ring-2 focus:ring-terra/50"
+                      disabled={status === "sending"}
+                      className="w-full border border-cream-dark rounded-lg px-4 py-3 bg-white focus:outline-none focus:ring-2 focus:ring-terra/50 disabled:opacity-50"
                     />
                   </div>
                   <div>
@@ -104,16 +111,15 @@ export default function Reservations() {
                     <select
                       id="time"
                       required
-                      className="w-full border border-cream-dark rounded-lg px-4 py-3 bg-white focus:outline-none focus:ring-2 focus:ring-terra/50"
+                      disabled={status === "sending"}
+                      className="w-full border border-cream-dark rounded-lg px-4 py-3 bg-white focus:outline-none focus:ring-2 focus:ring-terra/50 disabled:opacity-50"
                     >
                       <option value="">Seleccionar</option>
-                      {["13:00", "13:30", "14:00", "14:30", "15:00", "20:00", "20:30", "21:00", "21:30", "22:00", "22:30"].map(
-                        (t) => (
-                          <option key={t} value={t}>
-                            {t}
-                          </option>
-                        )
-                      )}
+                      {reservationHours.map((t) => (
+                        <option key={t} value={t}>
+                          {t}
+                        </option>
+                      ))}
                     </select>
                   </div>
                   <div>
@@ -123,7 +129,8 @@ export default function Reservations() {
                     <select
                       id="guests"
                       required
-                      className="w-full border border-cream-dark rounded-lg px-4 py-3 bg-white focus:outline-none focus:ring-2 focus:ring-terra/50"
+                      disabled={status === "sending"}
+                      className="w-full border border-cream-dark rounded-lg px-4 py-3 bg-white focus:outline-none focus:ring-2 focus:ring-terra/50 disabled:opacity-50"
                     >
                       <option value="">Seleccionar</option>
                       {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
@@ -141,7 +148,8 @@ export default function Reservations() {
                   </label>
                   <select
                     id="occasion"
-                    className="w-full border border-cream-dark rounded-lg px-4 py-3 bg-white focus:outline-none focus:ring-2 focus:ring-terra/50"
+                    disabled={status === "sending"}
+                    className="w-full border border-cream-dark rounded-lg px-4 py-3 bg-white focus:outline-none focus:ring-2 focus:ring-terra/50 disabled:opacity-50"
                   >
                     <option value="">Ninguna</option>
                     <option value="cumpleanos">Cumpleaños</option>
@@ -158,15 +166,27 @@ export default function Reservations() {
                   <textarea
                     id="comments"
                     rows={3}
-                    className="w-full border border-cream-dark rounded-lg px-4 py-3 bg-white focus:outline-none focus:ring-2 focus:ring-terra/50 resize-none"
+                    disabled={status === "sending"}
+                    className="w-full border border-cream-dark rounded-lg px-4 py-3 bg-white focus:outline-none focus:ring-2 focus:ring-terra/50 resize-none disabled:opacity-50"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full bg-terra text-white py-3 rounded-full font-semibold text-lg hover:bg-terra-dark transition-colors"
+                  disabled={status === "sending"}
+                  className="w-full bg-terra text-white py-3 rounded-full font-semibold text-lg hover:bg-terra-dark transition-colors disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
-                  Confirmar Reserva
+                  {status === "sending" ? (
+                    <>
+                      <svg className="w-5 h-5 animate-spin" viewBox="0 0 24 24" fill="none">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                      </svg>
+                      Enviando...
+                    </>
+                  ) : (
+                    "Confirmar Reserva"
+                  )}
                 </button>
               </form>
             )}
@@ -190,10 +210,10 @@ export default function Reservations() {
                 Llámanos para reservas inmediatas o grupos de más de 8 personas:
               </p>
               <a
-                href="tel:+34933XXXXXX"
+                href={contact.phoneHref}
                 className="mt-3 inline-block text-terra font-bold text-lg hover:underline"
               >
-                +34 933 XXX XXX
+                {contact.phone}
               </a>
             </div>
 

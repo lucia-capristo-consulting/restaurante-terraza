@@ -1,25 +1,9 @@
 import HeroSection from "../components/HeroSection";
 import CTAButton from "../components/CTAButton";
 import { useScrollReveal } from "../hooks/useScrollReveal";
-import { heroHome, paellaMariscos, lubinaSal, cremaCatalana } from "../assets/images";
-
-const featuredDishes = [
-  {
-    name: "Paella de Mariscos",
-    price: "18 €/pers.",
-    image: paellaMariscos,
-  },
-  {
-    name: "Lubina Salvaje a la Sal",
-    price: "22 €",
-    image: lubinaSal,
-  },
-  {
-    name: "Crema Catalana",
-    price: "7 €",
-    image: cremaCatalana,
-  },
-];
+import { heroHome } from "../assets/images";
+import { featuredDishes } from "../data/featured";
+import { hours } from "../data/restaurant";
 
 export default function Home() {
   useScrollReveal();
@@ -33,6 +17,7 @@ export default function Home() {
         subtitle="Sabores del Mediterráneo en el corazón de Gràcia"
         ctaLabel="Reservar Mesa"
         ctaTo="/reservas"
+        alt="Terraza del restaurante al atardecer con vistas al barrio de Gràcia"
       />
 
       {/* Welcome */}
@@ -63,7 +48,7 @@ export default function Home() {
                 <div className="overflow-hidden">
                   <img
                     src={dish.image}
-                    alt={dish.name}
+                    alt={dish.alt}
                     className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
@@ -85,10 +70,11 @@ export default function Home() {
           Horarios
         </h2>
         <div className="mt-8 space-y-3 text-charcoal/70 text-lg">
-          <p><span className="font-semibold text-charcoal">Martes - Viernes:</span> 13:00 – 16:00 / 20:00 – 23:30</p>
-          <p><span className="font-semibold text-charcoal">Sábados:</span> 13:00 – 16:30 / 20:00 – 00:00</p>
-          <p><span className="font-semibold text-charcoal">Domingos:</span> 13:00 – 16:30</p>
-          <p><span className="font-semibold text-charcoal">Lunes:</span> Cerrado</p>
+          {hours.map((h) => (
+            <p key={h.days}>
+              <span className="font-semibold text-charcoal">{h.days}:</span> {h.time}
+            </p>
+          ))}
         </div>
         <div className="mt-10">
           <CTAButton to="/reservas">Reservar Mesa</CTAButton>
